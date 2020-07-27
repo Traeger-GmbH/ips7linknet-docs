@@ -9,5 +9,5 @@ var speedVariable = new PlcInt32("DB1.DBD 1");
 var speed = connection.ReadValue(speedVariable);
 
 // DOC
-var coordinatesVariable = new PlcInt32("DB1.DBD 1", 3);
+var coordinatesVariable = new PlcInt32Array("DB1.DBD 1", 3);
 var coordinates = connection.ReadValue(coordinatesVariable);
