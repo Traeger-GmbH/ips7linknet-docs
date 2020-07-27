@@ -13,3 +13,9 @@ var b = new PlcAddress(PlcOperand.Input, PlcRawType.Byte, 8);
 // DOC
 var a = PlcAddress.Parse("M9.3");
 var b = new PlcAddress(PlcOperand.Flag, PlcRawType.Bit, 9, 3);
+
+// DOC
+PlcAddress address = "DB3.DBB 10";
+PlcAddress address = "MB 5";
+PlcAddress address = "AW 2";
+PlcAddress address = "QW 2";
