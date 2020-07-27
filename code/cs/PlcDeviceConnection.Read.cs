@@ -25,3 +25,13 @@ Console.WriteLine($"Coordinates: {string.Join(",", coordinatesVariable.Value)}")
 Console.WriteLine($"Job is Active: {jobIsActiveVariable.Value}");
 Console.WriteLine($"Tool Setup: {string.Join(",", toolSetupVariable.Value)}");
 Console.WriteLine($"Operator Name: {operatorNameVariable.Value}");
+
+
+// DOC
+MillJob job = connection.ReadObject<MillJob>();
+
+Console.WriteLine("Input: {0}", job.Input);
+Console.WriteLine("Number: {0}", job.Number);
+Console.WriteLine("Output: {0}", job.Output);
+Console.WriteLine("Rotation Speed: {0}", job.RotationSpeed);
+Console.WriteLine("Total Diameter: {0}", job.ToolDiameter);
