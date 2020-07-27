@@ -33,3 +33,14 @@ connection.WriteValues(
         jobIsActiveVariable,
         toolSetupVariable,
         operatorNameVariable);
+
+
+// DOC
+MillJob job = new MillJob();
+job.Input = 1;
+job.Number = "MJ:100012";
+job.RotationSpeed = 3500;
+job.ToolDiameter = 12.8f;
+job.Output = 3;
+
+connection.WriteObject(job);
