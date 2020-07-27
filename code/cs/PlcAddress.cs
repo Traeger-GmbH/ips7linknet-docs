@@ -19,3 +19,20 @@ PlcAddress address = "DB3.DBB 10";
 PlcAddress address = "MB 5";
 PlcAddress address = "AW 2";
 PlcAddress address = "QW 2";
+
+// DOC
+PlcAddress address = "DB3.DBB 10";
+Console.WriteLine(address.ToString());                            // output: DB3.DBB 10
+
+PlcAddress address = "MB 5";
+Console.WriteLine(address.ToString());                            // output: MB 5
+
+PlcAddress address = "AW 2";
+Console.WriteLine(address.ToString());                            // output: AW 2
+Console.WriteLine(address.ToString(PlcOperandStandard.IEC));      // output: QW 2
+Console.WriteLine(address.ToString(PlcOperandStandard.Siemens));  // output: AW 2
+
+PlcAddress address = "QW 2";
+Console.WriteLine(address.ToString()); // output: AW 2
+Console.WriteLine(address.ToString(PlcOperandStandard.IEC));      // output: QW 2
+Console.WriteLine(address.ToString(PlcOperandStandard.Siemens));  // output: AW 2
