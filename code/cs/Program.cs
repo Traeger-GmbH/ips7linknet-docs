@@ -16,6 +16,6 @@ connection.Close();
 
 // DOC
 using (var connection = device.CreateConnection()) {
-    connection.Connect();
+    connection.Open();
     // Your code to interact with the controller.
 }
