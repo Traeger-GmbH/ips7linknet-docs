@@ -19,3 +19,17 @@ coordinatesVariable.Value[0] = 10;
 coordinatesVariable.Value[1] = 20;
 coordinatesVariable.Value[2] = 30;
 connection.WriteValue(coordinatesVariable);
+
+// DOC
+speedVariable.Value += 100;
+coordinatesVariable.Value = new[] { 10, 20, 30 };
+jobIsActiveVariable.Value = true;
+toolSetupVariable.Value = new[] { false, true, true };
+operatorNameVariable.Value = Environment.UserName;
+
+connection.WriteValues(
+        speedVariable,
+        coordinatesVariable,
+        jobIsActiveVariable,
+        toolSetupVariable,
+        operatorNameVariable);
