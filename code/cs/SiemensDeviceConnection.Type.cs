@@ -1,3 +1,3 @@
 // DOC
-var connection = (SiemensDeviceConnection)device.CreateConnection();
+var connection = (SimaticDeviceConnection)device.CreateConnection();
 connection.Type = PlcDeviceConnectionType.ProgrammerDevice;

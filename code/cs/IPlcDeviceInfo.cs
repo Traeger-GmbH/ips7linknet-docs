@@ -1,5 +1,5 @@
 // DOC
-var device = new SiemensDevice("192.168.0.80");
+var device = new SimaticDevice("192.168.0.80");
 var deviceInfo = device.GetInfo();
 
 if (deviceInfo.HasName)

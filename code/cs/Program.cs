@@ -2,7 +2,7 @@
 using IPS7Lnk.Advanced;
 
 // DOC
-var device = new SiemensDevice("192.168.0.80");
+var device = new SimaticDevice("192.168.0.80");
 
 // DOC
 var connection = device.CreateConnection();

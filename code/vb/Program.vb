@@ -2,7 +2,7 @@
 Imports IPS7Lnk.Advanced
 
 'DOC
-Dim device = New SiemensDevice("192.168.0.80")
+Dim device = New SimaticDevice("192.168.0.80")
 
 'DOC
 Dim connection = device.CreateConnection()

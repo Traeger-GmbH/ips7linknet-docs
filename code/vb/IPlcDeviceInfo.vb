@@ -1,5 +1,5 @@
 'DOC
-Dim device = New SiemensDevice("192.168.0.80")
+Dim device = New SimaticDevice("192.168.0.80")
 Dim deviceInfo = device.GetInfo()
 
 If deviceInfo.HasName Then _
