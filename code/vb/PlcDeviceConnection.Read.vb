@@ -29,6 +29,7 @@ Console.WriteLine($"Operator Name: {operatorNameVariable.Value}")
 
 'DOC
 Dim job As MillJob = connection.ReadObject(Of MillJob)()
+
 Console.WriteLine("Input: {0}", job.Input)
 Console.WriteLine("Number: {0}", job.Number)
 Console.WriteLine("Output: {0}", job.Output)

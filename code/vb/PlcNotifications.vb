@@ -1,5 +1,5 @@
 'DOC
-PlcNotifications.ConnectionCreated += AddressOf HandleNotificationsConnectionCreated
+AddHandler PlcNotifications.ConnectionCreated, AddressOf HandleNotificationsConnectionCreated
 
 ...
 

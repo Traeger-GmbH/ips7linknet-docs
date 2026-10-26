@@ -1,16 +1,32 @@
 'DOC
-IPS7LnkNet.Advanced.Licenser.LicenseKey = "<insert your license code here>"
+IPS7Lnk.Advanced.Licenser.LicenseKey = "<insert your license code here>"
 
 'DOC
-Dim license As ILicenseInfo = IPS7LnkNet.Advanced.Licenser.LicenseInfo
+Dim license As IPS7Lnk.ILicenseInfo = IPS7Lnk.Advanced.Licenser.LicenseInfo
 
 If license.IsExpired Then _
     Console.WriteLine("The IP S7 LINK SDK license is expired!")
 
 
 'DOC
-#if DEBUG
-    IPS7LnkNet.Advanced.Licenser.FailIfUnlicensed()
-#else
-    IPS7LnkNet.Advanced.Licenser.ThrowIfUnlicensed()
-#endif
+#If DEBUG Then
+    IPS7Lnk.Advanced.Licenser.FailIfUnlicensed()
+#Else
+    IPS7Lnk.Advanced.Licenser.ThrowIfUnlicensed()
+#End If
+
+'DOC
+IPS7Lnk.Advanced.Licenser.LicenseKey = "<insert your license code here>"
+
+'DOC
+Dim license As IPS7Lnk.ILicenseInfo = IPS7Lnk.Advanced.Licenser.LicenseInfo
+
+If license.IsExpired Then _
+    Console.WriteLine("The license has expired.")
+
+'DOC
+#If DEBUG Then
+    IPS7Lnk.Advanced.Licenser.FailIfUnlicensed()
+#Else
+    IPS7Lnk.Advanced.Licenser.ThrowIfUnlicensed()
+#End If

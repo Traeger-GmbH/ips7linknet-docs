@@ -8,3 +8,4 @@ Private Shared Sub HandleConnectionStateChanged( _
         ' ...
     End If
 End Sub
+

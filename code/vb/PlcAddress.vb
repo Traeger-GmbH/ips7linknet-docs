@@ -36,3 +36,19 @@ Dim address As PlcAddress = "QW 2"
 Console.WriteLine(address.ToString())                            ' output: AW 2
 Console.WriteLine(address.ToString(PlcOperandStandard.IEC))      ' output: QW 2
 Console.WriteLine(address.ToString(PlcOperandStandard.Siemens))  ' output: AW 2
+
+'DOC
+Dim a = PlcAddress.Parse("DB10.DBW 5")
+Dim b = New PlcAddress(PlcOperand.DataBlock(10), PlcRawType.Word, byteNumber:=5)
+
+'DOC
+Dim a = PlcAddress.Parse("DB10.DBX 5.1")
+Dim b = New PlcAddress(PlcOperand.DataBlock(10), PlcRawType.Bit, byteNumber:=5, bitNumber:=1)
+
+'DOC
+Dim a = PlcAddress.Parse("EB 8")
+Dim b = New PlcAddress(PlcOperand.Input, PlcRawType.Byte, byteNumber:=8)
+
+'DOC
+Dim a = PlcAddress.Parse("M 9.3")
+Dim b = New PlcAddress(PlcOperand.Flag, PlcRawType.Bit, byteNumber:=9, bitNumber:=3)

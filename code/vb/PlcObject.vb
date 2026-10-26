@@ -46,3 +46,57 @@ Public Class MachineData
         Return Me.toolConfigurations(toolIndex)
     End Function
 End Class
+
+
+
+'DOC
+Public Class MillJob
+    Inherits PlcObject
+
+    <PlcMember("DB1.DBD 0")>
+    Public Input As Integer
+
+    <PlcMember("DB1.DBB 4", Length:=16)>
+    Public Number As String
+
+    <PlcMember("DB1.DBD 22")>
+    Public Output As Integer
+
+    <PlcMember("DB1.DBD 26")>
+    Public RotationSpeed As Integer
+
+    <PlcMember("DB1.DBD 30")>
+    Public ToolDiameter As Single
+End Class
+
+'DOC
+Public Class MachineData
+    Inherits PlcObject
+
+    <PlcMember("DB1.DBX 100.0", Length:=7)>
+    Private toolConfigurations As Boolean()
+
+    Public Sub New()
+        MyBase.New()
+    End Sub
+
+    <PlcMember("DB1.DBX 100.7")>
+    Public Property UseCuttingTool As Boolean
+
+    <PlcMember("DB1.DBD 102")>
+    Public Property Speed As Integer
+
+    <PlcMember("DB1.DBD 106")>
+    Public Property Temperature As Single
+
+    <PlcMember("DB1.DBB 110", Length:=16)>
+    Public Property JobNumber As String
+
+    <PlcMember("DB1.DBB 128")>
+    Public Property EstimatedFinishDate As DateTime
+
+    Public Function IsToolConfigured(ByVal toolIndex As Integer) As Boolean
+        Return Me.toolConfigurations(toolIndex)
+    End Function
+End Class
+

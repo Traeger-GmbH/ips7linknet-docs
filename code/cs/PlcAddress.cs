@@ -36,3 +36,19 @@ PlcAddress address = "QW 2";
 Console.WriteLine(address.ToString()); // output: AW 2
 Console.WriteLine(address.ToString(PlcOperandStandard.IEC));      // output: QW 2
 Console.WriteLine(address.ToString(PlcOperandStandard.Siemens));  // output: AW 2
+
+// DOC
+var a = PlcAddress.Parse("DB10.DBW 5");
+var b = new PlcAddress(PlcOperand.DataBlock(10), PlcRawType.Word, byteNumber: 5);
+
+// DOC
+var a = PlcAddress.Parse("DB10.DBX 5.1");
+var b = new PlcAddress(PlcOperand.DataBlock(10), PlcRawType.Bit, byteNumber: 5, bitNumber: 1);
+
+// DOC
+var a = PlcAddress.Parse("EB 8");
+var b = new PlcAddress(PlcOperand.Input, PlcRawType.Byte, byteNumber: 8);
+
+// DOC
+var a = PlcAddress.Parse("M 9.3");
+var b = new PlcAddress(PlcOperand.Flag, PlcRawType.Bit, byteNumber: 9, bitNumber: 3);

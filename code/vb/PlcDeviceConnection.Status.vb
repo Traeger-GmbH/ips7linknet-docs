@@ -1,6 +1,6 @@
 'DOC
 Dim status As PlcStatus = connection.Status
-status.Changed += AddressOf HandleConnectionStatusChanged
+AddHandler status.Changed, AddressOf HandleConnectionStatusChanged
 
 'DOC
 Private Shared Sub HandleConnectionStatusChanged(ByVal sender As Object, ByVal e As EventArgs)
@@ -11,3 +11,4 @@ Private Shared Sub HandleConnectionStatusChanged(ByVal sender As Object, ByVal e
     Console.WriteLine("- Text=[{0}]", status.Text)
     Console.WriteLine("- Exception=[{0}]", If(status.Exception?.Message, "<none>"))
 End Sub
+
