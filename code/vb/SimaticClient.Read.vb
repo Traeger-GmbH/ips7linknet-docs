@@ -38,3 +38,22 @@ Console.WriteLine("Coordinates: {0}", String.Join(", ", coordinatesVariable.Valu
 Console.WriteLine("Job is active: {0}", jobIsActiveVariable.Value)
 Console.WriteLine("Tool setup: {0}", String.Join(", ", toolSetupVariable.Value))
 Console.WriteLine("Operator: {0}", operatorNameVariable.Value)
+
+'DOC
+Dim counterVariable = New PlcInt32("DB10.DBD 0")
+
+'Reads DB10.DBD 0, DB11.DBD 0 and DB12.DBD 0.
+For station As Integer = 0 To 2
+    Dim stationCounter = CType(counterVariable.Relocate(operandNumber:=station), PlcInt32)
+    Dim counter As Integer = client.ReadValue(stationCounter)
+
+    Console.WriteLine("{0}: {1}", stationCounter.Type.Address, counter)
+Next
+
+'DOC
+Dim values As PlcInt32() = Enumerable.Range(0, 100) _
+        .Select(Function(index) New PlcInt32("DB10.DBD " & (index * 4))) _
+        .ToArray()
+
+'The SDK packs the values into as few telegrams as the PDU size allows.
+client.ReadValues(values)

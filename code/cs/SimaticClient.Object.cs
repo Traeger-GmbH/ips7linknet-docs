@@ -16,3 +16,20 @@ job.RotationSpeed = 3500;
 job.ToolDiameter = 12.8f;
  
 client.WriteObject(job);
+
+// DOC
+var machine = new MachineData();
+machine.PropertyChanged += HandleMachinePropertyChanged;
+ 
+// Raises PropertyChanged for each property whose value has changed.
+client.ReadObject(machine);
+
+// DOC
+private static void HandleMachinePropertyChanged(
+        object sender,
+        PropertyChangedEventArgs e)
+{
+    var machine = (MachineData)sender;
+ 
+    Console.WriteLine("{0}: {1}", e.PropertyName, machine[e.PropertyName]);
+}

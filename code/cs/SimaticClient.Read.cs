@@ -38,3 +38,22 @@ Console.WriteLine("Coordinates: {0}", string.Join(", ", coordinatesVariable.Valu
 Console.WriteLine("Job is active: {0}", jobIsActiveVariable.Value);
 Console.WriteLine("Tool setup: {0}", string.Join(", ", toolSetupVariable.Value));
 Console.WriteLine("Operator: {0}", operatorNameVariable.Value);
+
+// DOC
+var counterVariable = new PlcInt32("DB10.DBD 0");
+ 
+// Reads DB10.DBD 0, DB11.DBD 0 and DB12.DBD 0.
+for (int station = 0; station < 3; station++) {
+    var stationCounter = (PlcInt32)counterVariable.Relocate(operandNumber: station);
+    int counter = client.ReadValue(stationCounter);
+ 
+    Console.WriteLine("{0}: {1}", stationCounter.Type.Address, counter);
+}
+
+// DOC
+PlcInt32[] values = Enumerable.Range(0, 100)
+        .Select(index => new PlcInt32("DB10.DBD " + (index * 4)))
+        .ToArray();
+ 
+// The SDK packs the values into as few telegrams as the PDU size allows.
+client.ReadValues(values);

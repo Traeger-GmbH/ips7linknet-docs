@@ -12,3 +12,10 @@ private static void HandleConnectionStatusChanged(object sender, EventArgs e)
     Console.WriteLine("- Text=[{0}]", status.Text);
     Console.WriteLine("- Exception=[{0}]", status.Exception?.Message ?? "<none>");
 }
+
+// DOC
+PlcStatus status = connection.GetStatus(new PlcInt32("DB99.DBD 0").Type);
+ 
+Console.WriteLine(status.TimeStamp);
+Console.WriteLine("- Code=[{0}]", status.Code);
+Console.WriteLine("- Text=[{0}]", status.Text);

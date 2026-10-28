@@ -16,3 +16,20 @@ job.RotationSpeed = 3500
 job.ToolDiameter = 12.8F
 
 client.WriteObject(job)
+
+'DOC
+Dim machine = New MachineData()
+AddHandler machine.PropertyChanged, AddressOf HandleMachinePropertyChanged
+
+'Raises PropertyChanged for each property whose value has changed.
+client.ReadObject(machine)
+
+'DOC
+Private Shared Sub HandleMachinePropertyChanged( _
+        ByVal sender As Object, _
+        ByVal e As PropertyChangedEventArgs)
+    Dim machine = CType(sender, MachineData)
+
+    Console.WriteLine("{0}: {1}", e.PropertyName, machine(e.PropertyName))
+End Sub
+
